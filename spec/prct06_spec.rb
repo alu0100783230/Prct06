@@ -3,7 +3,9 @@ require "spec_helper"
 describe Prct06 do
 
   before :all do
-    @menu = Menu.new ("")
+    @title = "desayuno media manana almuerzo merienda cena"
+
+    @menu = Menu.new (@title)
   end
 
   it "has a version number" do
@@ -11,6 +13,6 @@ describe Prct06 do
   end
 
   it "a title must exist" do
-    expect(@menu.Title).not_to eq(nil)
+    expect(@menu.Title).to eq(@title)
   end
 end
