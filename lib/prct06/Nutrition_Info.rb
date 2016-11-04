@@ -15,4 +15,8 @@ class Nutrition_Info
       param
     end
   end
+
+  def to_s
+    "hidrates: " + @Hidrates.to_s + ", proteins: " + @Proteins.to_s + ", fats: " + @Fats.to_s + ", kilocalories: " + @Calories.to_s
+  end
 end
