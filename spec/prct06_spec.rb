@@ -25,7 +25,7 @@ describe Prct06 do
   end
 
   it "The title can't be anything" do
-    expect(@menu.Title).to eq("Desayuno")
+    expect(@menu_fail.Title).to eq("Desayuno")
   end
 
 end
