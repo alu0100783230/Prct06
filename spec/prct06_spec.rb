@@ -27,21 +27,26 @@ describe Prct06 do
   end
 
   describe "Nutrition" do
-    it "have hidrates" do
-      expect(@nutritional_good_1.Hidrates).to eq(10)
-      expect(@nutritional_fail_1.Hidrates).to eq(0)
-    end
-    it "have proteins" do
-      expect(@nutritional_good_1.Proteins).to eq(15)
-      expect(@nutritional_fail_1.Proteins).to eq(0)
-    end
-    it "have fats" do
-      expect(@nutritional_good_1.Fats).to eq(20)
-    end
-    it "have calories" do
-      expect(@nutritional_good_1.Calories).to eq(25)
+    describe "contains information" do
+      it "have hidrates" do
+        expect(@nutritional_good_1.Hidrates).to eq(10)
+        expect(@nutritional_fail_1.Hidrates).to eq(0)
+      end
+      it "have proteins" do
+        expect(@nutritional_good_1.Proteins).to eq(15)
+        expect(@nutritional_fail_1.Proteins).to eq(0)
+      end
+      it "have fats" do
+        expect(@nutritional_good_1.Fats).to eq(20)
+      end
+      it "have calories" do
+        expect(@nutritional_good_1.Calories).to eq(25)
+      end
     end
 
+    it "have a formated output" do
+      expect(@nutritional_good_1.to_s).to eq("hidrates: 10, proteins: 15, fats: 20, kilocalories: 25")
+    end
   end
 
   describe "Plate" do
