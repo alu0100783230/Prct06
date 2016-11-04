@@ -12,7 +12,8 @@ describe Prct06 do
     @menu_fail_1 = Menu.new "Anything", 0
     @menu_fail_2 = Menu.new "Anything", -5
 
-    @plate_good = Plate.new "name", "extra_info", 3
+    @plate_good_1 = Plate.new "name", "extra_info", 3
+    @plate_good_2 = Plate.new "Macarrones con salsa de tomate y queso parmesano", " 1 1/2 cucharón",  200
 
     @plate_fail_1 = Plate.new "name", "extra_info", 0
     @plate_fail_2 = Plate.new "name", "extra_info", -5
@@ -59,20 +60,24 @@ describe Prct06 do
   describe "Plate" do
 
     it "have title" do
-      expect(@plate_good.Name).to eq("name")
+      expect(@plate_good_1.Name).to eq("name")
     end
     it "have extra info" do
-      expect(@plate_good.Extra).to eq("extra_info")
+      expect(@plate_good_1.Extra).to eq("extra_info")
     end
 
     describe "quantity" do
       it "have quantity" do
-        expect(@plate_good.Quantity).to eq(3)
+        expect(@plate_good_1.Quantity).to eq(3)
       end
       it "cuantity can't be 0" do
         expect(@plate_fail_1.Quantity).to eq(1)
         expect(@plate_fail_2.Quantity).to eq(1)
       end
+    end
+
+    it "have a formated output" do
+      expect(@plate_good_2.to_s).to eq(" Macarrones con salsa de tomate y queso parmesano, 1 1/2 cucharón, 200 g")
     end
 
   end
