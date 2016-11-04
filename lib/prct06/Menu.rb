@@ -27,11 +27,11 @@ class Menu
 
   def check_content(content)
     if (!content.kind_of?(Array))
-      content = [Plate.new("Croqueta","1",20)]
+      content = [Plate.new("Croqueta","1",20,nil)]
     else
       content.map! do |x|
         if(!x.kind_of?(Plate))
-          Plate.new("Croqueta","1",20)
+          Plate.new("Croqueta","1",20,nil)
         else
           x
         end

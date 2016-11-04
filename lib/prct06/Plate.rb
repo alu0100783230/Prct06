@@ -1,3 +1,5 @@
+require "prct06/Nutrition_Info.rb"
+
 class Plate
   attr_reader :Name, :Quantity, :Extra, :NutritionalInfo
 
