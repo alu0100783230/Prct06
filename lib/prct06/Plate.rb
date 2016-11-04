@@ -15,4 +15,8 @@ class Plate
     end
   end
 
+  def to_s
+    @Name + ", " + @Extra + ", " + @Quantity.to_s + " g"
+  end
+
 end

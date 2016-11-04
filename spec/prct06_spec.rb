@@ -13,7 +13,7 @@ describe Prct06 do
     @menu_fail_2 = Menu.new "Anything", -5
 
     @plate_good_1 = Plate.new "name", "extra_info", 3
-    @plate_good_2 = Plate.new "Macarrones con salsa de tomate y queso parmesano", " 1 1/2 cucharón",  200
+    @plate_good_2 = Plate.new "Macarrones con salsa de tomate y queso parmesano", "1 1/2 cucharón",  200
 
     @plate_fail_1 = Plate.new "name", "extra_info", 0
     @plate_fail_2 = Plate.new "name", "extra_info", -5
@@ -77,7 +77,7 @@ describe Prct06 do
     end
 
     it "have a formated output" do
-      expect(@plate_good_2.to_s).to eq(" Macarrones con salsa de tomate y queso parmesano, 1 1/2 cucharón, 200 g")
+      expect(@plate_good_2.to_s).to eq("Macarrones con salsa de tomate y queso parmesano, 1 1/2 cucharón, 200 g")
     end
 
   end
