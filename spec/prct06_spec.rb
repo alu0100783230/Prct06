@@ -3,24 +3,49 @@ require "spec_helper"
 describe Prct06 do
 
   before :all do
-    @menu_good_1 = Menu.new "Desayuno", 30
-    @menu_good_2 = Menu.new "Almuerzo", 30
-    @menu_good_3 = Menu.new "Cena", 20
-    @menu_good_4 = Menu.new "Media Mañana", 10
-    @menu_good_5 = Menu.new "Merienda", 10
-
-    @menu_fail_1 = Menu.new "Anything", 0
-    @menu_fail_2 = Menu.new "Anything", -5
-
     @plate_good_1 = Plate.new "name", "extra_info", 3
     @plate_good_2 = Plate.new "Macarrones con salsa de tomate y queso parmesano", "1 1/2 cucharón",  200
 
     @plate_fail_1 = Plate.new "name", "extra_info", 0
     @plate_fail_2 = Plate.new "name", "extra_info", -5
+
+    @menu_good_1 = Menu.new "Desayuno", 30, [@plate_good_1, @plate_good_2]
+    @menu_good_2 = Menu.new "Almuerzo", 30, [@plate_good_1, @plate_good_2]
+    @menu_good_3 = Menu.new "Cena", 20, [@plate_good_1, @plate_good_2]
+    @menu_good_4 = Menu.new "Media Mañana", 10, [@plate_good_1, @plate_good_2]
+    @menu_good_5 = Menu.new "Merienda", 10, [@plate_good_1, @plate_good_2]
+
+    @menu_fail_1 = Menu.new "Anything", 0, [@plate_good_1]
+    @menu_fail_2 = Menu.new "Anything", -5, [@plate_good_1]
   end
 
   it "has a version number" do
     expect(Prct06::VERSION).not_to be nil
+  end
+
+  describe "Plate" do
+
+    it "have title" do
+      expect(@plate_good_1.Name).to eq("name")
+    end
+    it "have extra info" do
+      expect(@plate_good_1.Extra).to eq("extra_info")
+    end
+
+    describe "quantity" do
+      it "have quantity" do
+        expect(@plate_good_1.Quantity).to eq(3)
+      end
+      it "cuantity can't be 0" do
+        expect(@plate_fail_1.Quantity).to eq(1)
+        expect(@plate_fail_2.Quantity).to eq(1)
+      end
+    end
+
+    it "have a formated output" do
+      expect(@plate_good_2.to_s).to eq("Macarrones con salsa de tomate y queso parmesano, 1 1/2 cucharón, 200 g")
+    end
+
   end
 
   describe "Menu" do
@@ -55,34 +80,15 @@ describe Prct06 do
       end
     end
 
-  end
-
-  describe "Plate" do
-
-    it "have title" do
-      expect(@plate_good_1.Name).to eq("name")
-    end
-    it "have extra info" do
-      expect(@plate_good_1.Extra).to eq("extra_info")
-    end
-
-    describe "quantity" do
-      it "have quantity" do
-        expect(@plate_good_1.Quantity).to eq(3)
-      end
-      it "cuantity can't be 0" do
-        expect(@plate_fail_1.Quantity).to eq(1)
-        expect(@plate_fail_2.Quantity).to eq(1)
+    describe "content" do
+      it "contains plates" do
+        expect(@menu_good_1.Content).to be_a(Array)
+        expect(@menu_good_1.Content).not_to be_empty
+        expect(@menu_good_1.Content[0]).to eq(@plate_good_1)
+        expect(@menu_good_1.Content[1]).to eq(@plate_good_2)
       end
     end
 
-    it "have a formated output" do
-      expect(@plate_good_2.to_s).to eq("Macarrones con salsa de tomate y queso parmesano, 1 1/2 cucharón, 200 g")
-    end
-
   end
-
-
-
 
 end
