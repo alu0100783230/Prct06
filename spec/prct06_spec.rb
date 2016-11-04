@@ -12,10 +12,10 @@ describe Prct06 do
     @menu_fail_1 = Menu.new "Anything", 0
     @menu_fail_2 = Menu.new "Anything", -5
 
-    @plate_good = Plate.new "name" "extra_info" 3
+    @plate_good = Plate.new "name", "extra_info", 3
 
-    @plate_fail_1 = Plate.new "name" "extra_info" 0
-    @plate_fail_2 = Plate.new "name" "extra_info" 0
+    @plate_fail_1 = Plate.new "name", "extra_info", 0
+    @plate_fail_2 = Plate.new "name", "extra_info", -5
   end
 
   it "has a version number" do
@@ -23,6 +23,7 @@ describe Prct06 do
   end
 
   describe "Menu" do
+
     describe "title" do
       it "The title must be on of these" do
         expect(@menu_good_1.Title).to eq("Desayuno")
@@ -35,7 +36,6 @@ describe Prct06 do
       it "The title can't be anything" do
         expect(@menu_fail.Title).to eq("Desayuno")
       end
-
     end
 
     describe "porcentage" do
@@ -52,9 +52,11 @@ describe Prct06 do
         expect(@menu_fail_2.Porcentage).to eq(10)
       end
     end
+
   end
 
   describe "Plate" do
+
     it "have title" do
       expect(@plate_good.Name).to eq("name")
     end
@@ -71,6 +73,7 @@ describe Prct06 do
         expect(@plate_fail_2.Name).to eq(1)
       end
     end
+
   end
 
 
