@@ -125,16 +125,16 @@ describe Prct06 do
 
     describe "have nutritional info" do
       it "have V.C.T" do
-        expect(@menu_good_1.vct).to eq(50)
+        expect(@menu_good_1.get_vct().to eq(50))
       end
       it "have hidrates" do
-        expect(@menu_good_1.hidrates).to eq(20)
+        expect(@menu_good_1.get_hidrates().to eq(20))
       end
       it "have proteins" do
-        expect(@menu_good_1.proteins).to eq(30)
+        expect(@menu_good_1.get_proteins().to eq(30))
       end
       it "have fats" do
-        expect(@menu_good_1.fats).to eq(40)
+        expect(@menu_good_1.get_fats().to eq(40))
       end
     end
 

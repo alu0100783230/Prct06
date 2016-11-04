@@ -1,11 +1,10 @@
 class Menu
-  attr_reader :Title, :Porcentage, :Content, :vct
+  attr_reader :Title, :Porcentage, :Content
 
   def initialize(title, porcentage, content)
     @Title = check_name title
     @Porcentage = check_porcentage porcentage
     @Content = check_content content
-    @vct = get_vct
   end
 
   def check_name(title)
@@ -42,11 +41,35 @@ class Menu
   end
 
   def get_vct
-    vct = 0
+    var = 0
     @Content.each do |x|
-      vct +=  x.NutritionalInfo.Calories
+      var +=  x.NutritionalInfo.Calories
     end
-    vct
+    var
+  end
+
+  def get_fats
+    var = 0
+    @Content.each do |x|
+      var +=  x.NutritionalInfo.Fats
+    end
+    var
+  end
+
+  def get_hidrates
+    var = 0
+    @Content.each do |x|
+      var +=  x.NutritionalInfo.Hidrates
+    end
+    var
+  end
+
+  def get_proteins
+    var = 0
+    @Content.each do |x|
+      var +=  x.NutritionalInfo.Proteins
+    end
+    var
   end
 
 end
