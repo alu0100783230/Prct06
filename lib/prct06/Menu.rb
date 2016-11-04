@@ -1,9 +1,10 @@
 class Menu
-  attr_reader :Title, :Porcentage
+  attr_reader :Title, :Porcentage, :Content
 
-  def initialize(title, porcentage)
+  def initialize(title, porcentage, content)
     @Title = check_name title
     @Porcentage = check_porcentage porcentage
+    @Content = check_content content
   end
 
   def check_name(title)
@@ -22,6 +23,19 @@ class Menu
     else
       10
     end
+  end
+
+  def check_content(content)
+    if (!content.kind_of?(Array))
+      content = [Plate.new("Croqueta","1",20)]
+    else
+      content.each do |x|
+        if !x.kind_of?(Plate)
+          x = Plate.new("Croqueta","1",20)
+        end
+      end
+    end
+    content
   end
 
 end
