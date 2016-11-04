@@ -3,6 +3,8 @@ require "spec_helper"
 describe Prct06 do
 
   before :all do
+    @nutritional_good_1 = Nutrition_Info.new 10, 15, 20, 25
+
     @plate_good_1 = Plate.new "name", "extra_info", 3
     @plate_good_2 = Plate.new "Macarrones con salsa de tomate y queso parmesano", "1 1/2 cucharón",  200
 
@@ -21,6 +23,22 @@ describe Prct06 do
 
   it "has a version number" do
     expect(Prct06::VERSION).not_to be nil
+  end
+
+  describe "Nutrition" do
+    it "have hidrates" do
+      expect(@nutritional_good_1.Hidrates).to eq(10)
+    end
+    it "have proteins" do
+      expect(@nutritional_good_1.Proteins).to eq(15)
+    end
+    it "have fats" do
+      expect(@nutritional_good_1.Fats).to eq(20)
+    end
+    it "have calories" do
+      expect(@nutritional_good_1.Calories).to eq(25)
+    end
+
   end
 
   describe "Plate" do
