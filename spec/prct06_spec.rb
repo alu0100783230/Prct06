@@ -121,6 +121,10 @@ describe Prct06 do
         expect(@menu_fail_1.Content[0]).to be_a(Plate)
         expect(@menu_fail_1.Content[1]).to be_a(Plate)
       end
+
+      it "have V.C.T" do
+        expect(@menu_good_1.vct).to eq(50)
+      end
     end
 
   end
