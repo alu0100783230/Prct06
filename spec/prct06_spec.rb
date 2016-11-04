@@ -6,11 +6,11 @@ describe Prct06 do
     @nutritional_good_1 = Nutrition_Info.new 10, 15, 20, 25
     @nutritional_fail_1 = Nutrition_Info.new -1, -5, 20, 25
 
-    @plate_good_1 = Plate.new "name", "extra_info", 3
-    @plate_good_2 = Plate.new "Macarrones con salsa de tomate y queso parmesano", "1 1/2 cucharón",  200
+    @plate_good_1 = Plate.new "name", "extra_info", 3, @nutritional_good_1
+    @plate_good_2 = Plate.new "Macarrones con salsa de tomate y queso parmesano", "1 1/2 cucharón",  200, @nutritional_good_1
 
-    @plate_fail_1 = Plate.new "name", "extra_info", 0
-    @plate_fail_2 = Plate.new "name", "extra_info", -5
+    @plate_fail_1 = Plate.new "name", "extra_info", 0, @nutritional_good_1
+    @plate_fail_2 = Plate.new "name", "extra_info", -5, @nutritional_good_1
 
     @menu_good_1 = Menu.new "Desayuno", 30, [@plate_good_1, @plate_good_2]
     @menu_good_2 = Menu.new "Almuerzo", 30, [@plate_good_1, @plate_good_2]
@@ -45,7 +45,6 @@ describe Prct06 do
   end
 
   describe "Plate" do
-
     it "have title" do
       expect(@plate_good_1.Name).to eq("name")
     end
@@ -65,6 +64,10 @@ describe Prct06 do
 
     it "have a formated output" do
       expect(@plate_good_2.to_s).to eq("Macarrones con salsa de tomate y queso parmesano, 1 1/2 cucharón, 200 g")
+    end
+
+    it "have nutritional information" do
+      expect(@plate_good_2.NutritionalInfo).to eq(@nutritional_good_1)
     end
 
   end

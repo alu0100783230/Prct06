@@ -1,10 +1,11 @@
 class Plate
-  attr_reader :Name, :Quantity, :Extra
+  attr_reader :Name, :Quantity, :Extra, :NutritionalInfo
 
-  def initialize(name, extra, quantity)
+  def initialize(name, extra, quantity, nutr_info)
     @Name = name
     @Extra = extra
     @Quantity = check_quantity quantity
+    @NutritionalInfo = nutr_info
   end
 
   def check_quantity(quantity)
