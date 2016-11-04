@@ -3,7 +3,7 @@ require "spec_helper"
 describe Prct06 do
 
   before :all do
-    @menu = Menu.new
+    @menu = Menu.new ("")
   end
 
   it "has a version number" do
