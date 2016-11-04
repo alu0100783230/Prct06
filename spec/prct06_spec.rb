@@ -34,7 +34,8 @@ describe Prct06 do
       end
 
       it "The title can't be anything" do
-        expect(@menu_fail.Title).to eq("Desayuno")
+        expect(@menu_fail_1.Title).to eq("Desayuno")
+        expect(@menu_fail_2.Title).to eq("Desayuno")
       end
     end
 
@@ -61,16 +62,16 @@ describe Prct06 do
       expect(@plate_good.Name).to eq("name")
     end
     it "have extra info" do
-      expect(@plate_good.Name).to eq("extra_info")
+      expect(@plate_good.Extra).to eq("extra_info")
     end
 
     describe "quantity" do
       it "have quantity" do
-        expect(@plate_good.Name).to eq(4)
+        expect(@plate_good.Quantity).to eq(3)
       end
       it "cuantity can't be 0" do
-        expect(@plate_fail_1.Name).to eq(1)
-        expect(@plate_fail_2.Name).to eq(1)
+        expect(@plate_fail_1.Quantity).to eq(1)
+        expect(@plate_fail_2.Quantity).to eq(1)
       end
     end
 
