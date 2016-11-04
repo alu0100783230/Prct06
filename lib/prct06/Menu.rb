@@ -72,4 +72,12 @@ class Menu
     var
   end
 
+  def to_s
+    s = @Title + " (#{@Porcentage}%)\n"
+    @Content.each do |x|
+      s += "- " + x.to_s + "\n"
+    end
+    s += "V.C.T | % #{get_vct} kcal | #{get_hidrates}% | #{get_proteins}% | #{get_fats}%"
+  end
+
 end
