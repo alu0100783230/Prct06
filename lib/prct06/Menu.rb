@@ -1,12 +1,13 @@
 class Menu
-  attr_reader :Title
+  attr_reader :Title, :Porcentage
 
-  def initialize(title)
+  def initialize(title, porcentage)
     if (check_name(title))
       @Title = title
     else
       @Title = "Desayuno"
     end
+    @Porcentage = check_porcentage porcentage
   end
 
   def check_name(title)
@@ -17,6 +18,14 @@ class Menu
       end
     end
     false
+  end
+
+  def check_porcentage(porcentage)
+    if (porcentage > 0)
+      porcentage
+    else
+      10
+    end
   end
 
 end
