@@ -139,7 +139,7 @@ describe Prct06 do
     end
 
     it "have a formated output" do
-      expect(@menu_good_1.to_s).to eq("Desayuno (30%)\n- Macarrones con salsa de tomate y queso parmesano, 1 1/2 cucharón, 200 g\nV.C.T | % 50 kcal | 10% | 15% | 25%")
+      expect(@menu_good_1.to_s).to eq("Desayuno (30%)\n- name, extra_info, 3 g\n- Macarrones con salsa de tomate y queso parmesano, 1 1/2 cucharón, 200 g\nV.C.T | % 50 kcal | 20% | 30% | 40%")
     end
 
   end
