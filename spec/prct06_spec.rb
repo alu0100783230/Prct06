@@ -121,9 +121,20 @@ describe Prct06 do
         expect(@menu_fail_1.Content[0]).to be_a(Plate)
         expect(@menu_fail_1.Content[1]).to be_a(Plate)
       end
+    end
 
+    describe "have nutritional info" do
       it "have V.C.T" do
         expect(@menu_good_1.vct).to eq(50)
+      end
+      it "have hidrates" do
+        expect(@menu_good_1.hidrates).to eq(20)
+      end
+      it "have proteins" do
+        expect(@menu_good_1.proteins).to eq(30)
+      end
+      it "have fats" do
+        expect(@menu_good_1.fats).to eq(40)
       end
     end
 
