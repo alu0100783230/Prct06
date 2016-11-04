@@ -15,8 +15,8 @@ describe Prct06 do
     @menu_good_4 = Menu.new "Media Mañana", 10, [@plate_good_1, @plate_good_2]
     @menu_good_5 = Menu.new "Merienda", 10, [@plate_good_1, @plate_good_2]
 
-    @menu_fail_1 = Menu.new "Anything", 0, [@plate_good_1]
-    @menu_fail_2 = Menu.new "Anything", -5, [@plate_good_1]
+    @menu_fail_1 = Menu.new "Anything", 0, ["hola", @plate_good_1]
+    @menu_fail_2 = Menu.new "Anything", -5, []
   end
 
   it "has a version number" do
@@ -86,6 +86,11 @@ describe Prct06 do
         expect(@menu_good_1.Content).not_to be_empty
         expect(@menu_good_1.Content[0]).to eq(@plate_good_1)
         expect(@menu_good_1.Content[1]).to eq(@plate_good_2)
+      end
+
+      it "possible errors are fixed" do
+        expect(@menu_fail_1.Content[0]).to be_a(Plate)
+        expect(@menu_fail_1.Content[1]).to be_a(Plate)
       end
     end
 

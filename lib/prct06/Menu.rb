@@ -29,9 +29,11 @@ class Menu
     if (!content.kind_of?(Array))
       content = [Plate.new("Croqueta","1",20)]
     else
-      content.each do |x|
-        if !x.kind_of?(Plate)
-          x = Plate.new("Croqueta","1",20)
+      content.map! do |x|
+        if(!x.kind_of?(Plate))
+          Plate.new("Croqueta","1",20)
+        else
+          x
         end
       end
     end
