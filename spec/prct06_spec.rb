@@ -4,6 +4,7 @@ describe Prct06 do
 
   before :all do
     @nutritional_good_1 = Nutrition_Info.new 10, 15, 20, 25
+    @nutritional_fail_1 = Nutrition_Info.new -1, -5, 20, 25
 
     @plate_good_1 = Plate.new "name", "extra_info", 3
     @plate_good_2 = Plate.new "Macarrones con salsa de tomate y queso parmesano", "1 1/2 cucharón",  200
@@ -28,9 +29,11 @@ describe Prct06 do
   describe "Nutrition" do
     it "have hidrates" do
       expect(@nutritional_good_1.Hidrates).to eq(10)
+      expect(@nutritional_fail_1.Hidrates).to eq(0)
     end
     it "have proteins" do
       expect(@nutritional_good_1.Proteins).to eq(15)
+      expect(@nutritional_fail_1.Proteins).to eq(0)
     end
     it "have fats" do
       expect(@nutritional_good_1.Fats).to eq(20)
