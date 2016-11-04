@@ -2,11 +2,7 @@ class Menu
   attr_reader :Title, :Porcentage
 
   def initialize(title, porcentage)
-    if (check_name(title))
-      @Title = title
-    else
-      @Title = "Desayuno"
-    end
+    @Title = check_name title
     @Porcentage = check_porcentage porcentage
   end
 
@@ -14,10 +10,10 @@ class Menu
     posible_names = ["Desayuno", "Almuerzo", "Cena", "Media Mañana", "Merienda"]
     posible_names.each do |x|
       if (x == title)
-        return true
+        return title
       end
     end
-    false
+    "Desayuno"
   end
 
   def check_porcentage(porcentage)
